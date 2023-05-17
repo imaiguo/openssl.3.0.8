@@ -1,15 +1,6 @@
 the OpenSSL Project
 
-Windows环境编译
-
-Native builds using Visual C++
-==============================
-
-Requirement details
--------------------
-
-Requirements and instructions listed in `INSTALL.md`,
-
+## Windows环境编译
 ## Perl
 
 We recommend Strawberry Perl, available from <http://strawberryperl.com/>  
@@ -47,10 +38,13 @@ download [https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-
 > perl ../Configure VC-WIN64A --debug --prefix="D:\devtools\openssl.3.0.8d" --openssldir="D:\devtools\openssl.3.0.8d\SSL"
 ```
 
-
-
 ### test代码
 ```bash
 test\pem_read_depr_test.c
 test\evp_libctx_test.c  rsa_keygen
 ```
+
+## Linux环境编译
+
+
+

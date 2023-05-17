@@ -99,6 +99,6 @@ void rsaTest(){
 
 int main(){
     rsaTest();
-    // generate();
+    generate();
     return 0;
 }

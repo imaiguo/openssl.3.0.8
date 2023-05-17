@@ -1,7 +1,7 @@
 
 cmake_minimum_required(VERSION 3.18)
 
-set(APPNAME "aestest")
+set(APPNAME "sslserver")
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_INCLUE_CURRENT_DIR ON)
 
@@ -10,7 +10,7 @@ project(${APPNAME} LANGUAGES CXX)
 find_package(OpenSSL REQUIRED) # OPENSSL_INCLUDE_DIR,OPENSSL_LIBRARIES,OPENSSL_VERSION
 
 set(SRCMAIN
-    ./aestest.cc
+    ./helloworld.cc
 )
 
 add_executable(${APPNAME}

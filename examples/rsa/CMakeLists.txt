@@ -1,5 +1,5 @@
 
-cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.18)
 
 set(APPNAME "rsatest")
 set(APPRSA "generateRsa")
@@ -49,6 +49,5 @@ target_link_libraries( ${APPRSA}
         ${OPENSSL_LIBRARIES}
 )
 
-
-
 message("---configure done---")
+

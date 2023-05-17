@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <string.h>
 
 #include <openssl/crypto.h>
 #include <openssl/err.h>

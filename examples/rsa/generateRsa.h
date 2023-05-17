@@ -1,6 +1,7 @@
 // code from https://blog.csdn.net/yizhiniu_xuyw/article/details/114371606
 
 #include <fstream>
+#include <string.h>
 #include <openssl/rsa.h>
  
 #include <openssl/bn.h>

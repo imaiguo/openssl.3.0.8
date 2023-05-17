@@ -46,5 +46,12 @@ test\evp_libctx_test.c  rsa_keygen
 
 ## Linux环境编译
 
+系统自带开发库libssl-dev
 
-
+```bash
+ > mkdir build & cd build
+ > perl ../Configure --prefix="/opt/apps/openssl.3.0.8" --openssldir="/opt/apps/openssl.3.0.8/SSL"
+ > nmake
+ > nmake install
+ ```
+ 

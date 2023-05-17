@@ -8,7 +8,7 @@
 #include <iostream>
 #include <openssl/ssl.h>
 #include <openssl/err.h>
-#define port 443 //监听端口，可以在范围内自由设定
+#define port 8000 //监听端口，可以在范围内自由设定
 using namespace std;
 
 
@@ -37,8 +37,8 @@ int main()
     message+="HTTP/1.1 200 OK";
     message+="\r\n";
     message+="Content-Type:text/html\r\n";
-    message+="server:Tengine \r\n";
-    message+="name:LiaoKun \r\n";
+    message+="server:debian \r\n";
+    message+="name:test.ephraim.site \r\n";
     message+="\r\n";
     message+="<html><head>Hello,World!</head></html>\r\n";
     message+="\r\n";
@@ -65,13 +65,13 @@ int main()
 //    SSL_CTX_set_security_level(ctx,0);
 
     /* 载入用户的数字证书， 此证书用来发送给客户端。 证书里包含有公钥 */
-    if ( SSL_CTX_use_certificate_file(ctx, "/Users/liaokun/CLionProjects/http/cert/server.pem", SSL_FILETYPE_PEM) <= 0) {
+    if ( SSL_CTX_use_certificate_file(ctx, "../cert/9495166_uniontech.tech.pem", SSL_FILETYPE_PEM) <= 0) {
         ERR_print_errors_fp(stdout);
         exit(1);
     }
 
     /* 载入用户私钥 */
-    if (SSL_CTX_use_PrivateKey_file(ctx, "/Users/liaokun/CLionProjects/http/cert/server.key", SSL_FILETYPE_PEM) <= 0) {
+    if (SSL_CTX_use_PrivateKey_file(ctx, "../cert/9495166_uniontech.tech.key", SSL_FILETYPE_PEM) <= 0) {
         ERR_print_errors_fp(stdout);
         exit(1);
     }

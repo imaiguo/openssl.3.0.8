@@ -2,9 +2,8 @@
 
 ## 依赖项
 
-1. Perl
-
-2. NASM
+- Perl
+- NASM
 
 
 ## Build with MSVC
@@ -22,19 +21,19 @@ download [https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-
 > set Path=D:\devtools\nasm-2.16.01;%Path%
 > set CL=/MP
 > mkdir build & cd build
-> D:\devtools\strawberry-perl-5.32.1.1-64bit\perl\bin\perl.exe ../Configure VC-WIN64A --prefix="D:\devtools\openssl.3.0.8" --openssldir="D:\devtools\openssl.3.0.8\SSL"
+> D:\devtools\strawberry-perl-5.40.2.1-64bit\perl\bin\perl.exe ../Configure VC-WIN64A --prefix="D:\devtools\openssl.3.0.8" --openssldir="D:\devtools\openssl.3.0.8\SSL"
 > nmake & nmake install
 ```
 
 ### 编译Debug
 ```bash
-> D:\devtools\strawberry-perl-5.32.1.1-64bit\perl\bin\perl.exe ../Configure VC-WIN64A --debug --prefix="D:\devtools\openssl.3.0.8\debug" --openssldir="D:\devtools\openssl.3.0.8\debug\SSL"
+> D:\devtools\strawberry-perl-5.40.2.1-64bit\perl\bin\perl.exe ../Configure VC-WIN64A --debug --prefix="D:\devtools\openssl.3.0.8\debug" --openssldir="D:\devtools\openssl.3.0.8\debug\SSL"
 ```
 
 ### 运行测试程序
 ```bash
  > nmake test
- ```
+```
 
 ### test代码
 ```bash

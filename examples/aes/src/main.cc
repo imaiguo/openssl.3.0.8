@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// 测试1 自动设置密码和盐值
 void autoAes() {
     char *data = "hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!";
     AES_KEY aes;
@@ -94,7 +95,7 @@ void autoAes() {
     printf("decrypted string = %s\n", decrypt_string);
 }
 
-
+// 测试2.1 手动设置密码和盐值
 std::string aesEncode(std::string data, std::string key, std::string iv){
     std::string enStr;
     AES_KEY aes;
@@ -125,6 +126,7 @@ std::string aesEncode(std::string data, std::string key, std::string iv){
     return enStr;
 }
 
+// 测试2.2 手动设置密码和盐值
 std::string aesDecode(std::string data, std::string key, std::string iv){
     std::string deStr;
     AES_KEY aes;
@@ -158,7 +160,6 @@ std::string aesDecode(std::string data, std::string key, std::string iv){
     deStr = (char*)decrypt_string;
     return deStr;
 }
-
 
 void aesTest(){
     std::string data = "hello everybody!hello everybody!hello everybody!hello everybody!";

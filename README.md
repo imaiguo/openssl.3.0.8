@@ -6,7 +6,7 @@
 - NASM
 
 
-## Build with MSVC
+## 1. Build with MSVC
 
 We recommend Strawberry Perl, available from <http://strawberryperl.com/>  
 via <https://platform.activestate.com/ActiveState> and then download it.  
@@ -14,7 +14,7 @@ via <https://platform.activestate.com/ActiveState> and then download it.
 NASM is the only supported assembler. It is available from <https://www.nasm.us>.
 download [https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-win64.zip]
 
-### 编译Release
+### 1.1编译Release
 ```bash
 > cmd
 > "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
@@ -25,23 +25,33 @@ download [https://www.nasm.us/pub/nasm/releasebuilds/2.16.01/win64/nasm-2.16.01-
 > nmake & nmake install
 ```
 
-### 编译Debug
+### 1.2 编译Debug
 ```bash
 > D:\devtools\strawberry-perl-5.40.2.1-64bit\perl\bin\perl.exe ../Configure VC-WIN64A --debug --prefix="D:\devtools\openssl.3.0.8\debug" --openssldir="D:\devtools\openssl.3.0.8\debug\SSL"
 ```
 
-### 运行测试程序
+### 1.3 运行测试程序
 ```bash
  > nmake test
 ```
 
-### test代码
+### 1.4 test代码
 ```bash
 test\pem_read_depr_test.c
 test\evp_libctx_test.c  rsa_keygen
 ```
 
-## Linux环境编译
+## 1.5 配置开发环境
+
+```bash
+> # cmake
+> set(OPENSSL_ROOT_DIR "D:/devtools/openssl.3.0.8/")
+> # cmd
+> set Path=D:\devtools\openssl.3.0.8\bin;%Path%
+```
+
+
+## 2. Linux环境编译
 
 系统自带开发库libssl-dev
 

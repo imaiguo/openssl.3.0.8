@@ -1,16 +1,21 @@
 
 cmake_minimum_required(VERSION 3.18)
 
-set(APPNAME "aestest")
+set(APPNAME "AesTest")
 set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_INCLUE_CURRENT_DIR ON)
 
 project(${APPNAME} LANGUAGES CXX)
 
+set(OPENSSL_ROOT_DIR "D:/devtools/openssl.3.0.8/debug/")
+# set(OPENSSL_ROOT_DIR "D:/devtools/openssl.3.0.8/debug")
+
 find_package(OpenSSL REQUIRED) # OPENSSL_INCLUDE_DIR,OPENSSL_LIBRARIES,OPENSSL_VERSION
 
 set(SRCMAIN
-    ./aestest.cc
+    src/main.cpp
+    src/AesEncrypt.cpp
+    src/AesTest.cpp
 )
 
 add_executable(${APPNAME}
@@ -26,7 +31,5 @@ target_link_libraries( ${APPNAME}
     PRIVATE 
         ${OPENSSL_LIBRARIES}
 )
-
-
 
 message("---configure done---")

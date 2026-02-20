@@ -32,18 +32,28 @@
 >
 ```
 
-### 运行测试程序
+### 1.3 运行测试程序
 ```bash
  > nmake test
- ```
+```
 
-### test代码
+### 1.4 test代码
 ```bash
 test\pem_read_depr_test.c
 test\evp_libctx_test.c  rsa_keygen
 ```
 
-## Linux环境编译
+## 1.5 配置开发环境
+
+```bash
+> # cmake
+> set(OPENSSL_ROOT_DIR "D:/devtools/openssl.3.0.8/")
+> # cmd
+> set Path=D:\devtools\openssl.3.0.8\bin;%Path%
+```
+
+
+## 2. Linux环境编译
 
 系统自带开发库libssl-dev
 

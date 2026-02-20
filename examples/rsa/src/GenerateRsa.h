@@ -21,8 +21,7 @@ namespace OpensslTool{
 /*
 制造密钥对：私钥和公钥
 **/
-void GenerateRSAKey(std::string & out_pub_key, std::string & out_pri_key)
-{
+void GenerateRSAKey(std::string & out_pub_key, std::string & out_pri_key){
     size_t pri_len = 0; // 私钥长度
     size_t pub_len = 0; // 公钥长度
     char *pri_key = nullptr; // 私钥
@@ -60,21 +59,21 @@ void GenerateRSAKey(std::string & out_pub_key, std::string & out_pri_key)
  
     // 将公钥写入文件
     std::ofstream pub_file(PUB_KEY_FILE, std::ios::out);
-    if (!pub_file.is_open())
-    {
+    if (!pub_file.is_open()){
         perror("pub key file open fail:");
         return;
     }
+
     pub_file << pub_key;
     pub_file.close();
  
     // 将私钥写入文件
     std::ofstream pri_file(PRI_KEY_FILE, std::ios::out);
-    if (!pri_file.is_open())
-    {
+    if (!pri_file.is_open()){
         perror("pri key file open fail:");
         return;
     }
+
     pri_file << pri_key;
     pri_file.close();
  
@@ -94,14 +93,12 @@ void GenerateRSAKey(std::string & out_pub_key, std::string & out_pri_key)
          pri_key     -[i] 私钥
 @return: 加密后的数据
 **/
-std::string RsaPriEncrypt(const std::string &clear_text, std::string &pri_key)
-{
+std::string RsaPriEncrypt(const std::string &clear_text, std::string &pri_key){
     std::string encrypt_text;
     BIO *keybio = BIO_new_mem_buf((unsigned char *)pri_key.c_str(), -1);
     RSA* rsa = RSA_new();
     rsa = PEM_read_bio_RSAPrivateKey(keybio, &rsa, NULL, NULL);
-    if (!rsa)
-    {
+    if (!rsa){
         BIO_free_all(keybio);
         return std::string("");
     }
@@ -140,8 +137,7 @@ std::string RsaPriEncrypt(const std::string &clear_text, std::string &pri_key)
          pub_key     -[i] 公钥
 @return: 解密后的数据
 **/
-std::string RsaPubDecrypt(const std::string & cipher_text, const std::string & pub_key)
-{
+std::string RsaPubDecrypt(const std::string & cipher_text, const std::string & pub_key){
     std::string decrypt_text;
     BIO *keybio = BIO_new_mem_buf((unsigned char *)pub_key.c_str(), -1);
     RSA* rsa = RSA_new();
@@ -150,8 +146,7 @@ std::string RsaPubDecrypt(const std::string & cipher_text, const std::string & p
     // rsa = PEM_read_bio_RSAPublicKey(keybio, &rsa, NULL, NULL);
     // 注意-------使用第2种格式的公钥进行解密（我们使用这种格式作为示例）
     rsa = PEM_read_bio_RSA_PUBKEY(keybio, &rsa, NULL, NULL);
-    if (!rsa)
-    {
+    if (!rsa){
         unsigned long err = ERR_get_error(); //获取错误号
         char err_msg[1024] = { 0 };
         // ERR_error_string(ulErr, szErrMsg); // 格式：error:errId:库:函数:原因
@@ -194,8 +189,7 @@ std::string RsaPubDecrypt(const std::string & cipher_text, const std::string & p
          pri_key     -[i] 私钥
 @return: 加密后的数据
 **/
-std::string RsaPubEncrypt(const std::string &clear_text, const std::string &pub_key)
-{
+std::string RsaPubEncrypt(const std::string &clear_text, const std::string &pub_key){
     std::string encrypt_text;
     BIO *keybio = BIO_new_mem_buf((unsigned char *)pub_key.c_str(), -1);
     RSA* rsa = RSA_new();
@@ -238,8 +232,7 @@ std::string RsaPubEncrypt(const std::string &clear_text, const std::string &pub_
          pub_key     -[i] 公钥
 @return: 解密后的数据
 **/
-std::string RsaPriDecrypt(const std::string &cipher_text, const std::string &pri_key)
-{
+std::string RsaPriDecrypt(const std::string &cipher_text, const std::string &pri_key){
     std::string decrypt_text;
     RSA *rsa = RSA_new();
     BIO *keybio;

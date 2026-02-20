@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <string.h>
 
@@ -29,8 +30,7 @@
 
 using namespace std;
 
-static int key1(RSA *key, unsigned char *c)
-{
+static int key1(RSA *key, unsigned char *c){
     static unsigned char n[] =
         "\x00\xAA\x36\xAB\xCE\x88\xAC\xFD\xFF\x55\x52\x3C\x7F\xC4\x52\x3F"
         "\x90\xEF\xA0\x0D\xF3\x77\x4A\x25\x9F\x2E\x62\xB4\xC5\xD9\x9C\xB5"
@@ -78,8 +78,7 @@ static int key1(RSA *key, unsigned char *c)
     SetKey;
 }
 
-static int key2(RSA *key, unsigned char *c)
-{
+static int key2(RSA *key, unsigned char *c){
     static unsigned char n[] =
         "\x00\xA3\x07\x9A\x90\xDF\x0D\xFD\x72\xAC\x09\x0C\xCC\x2A\x78\xB8"
         "\x74\x13\x13\x3E\x40\x75\x9C\x98\xFA\xF8\x20\x4F\x35\x8A\x0B\x26"
@@ -123,8 +122,7 @@ static int key2(RSA *key, unsigned char *c)
     SetKey;
 }
 
-static int key3(RSA *key, unsigned char *c)
-{
+static int key3(RSA *key, unsigned char *c){
     static unsigned char n[] =
         "\x00\xBB\xF8\x2F\x09\x06\x82\xCE\x9C\x23\x38\xAC\x2B\x9D\xA8\x71"
         "\xF7\x36\x8D\x07\xEE\xD4\x10\x43\xA4\x40\xD6\xB6\xF0\x74\x54\xF5"
@@ -195,8 +193,7 @@ static int key3(RSA *key, unsigned char *c)
     SetKey;
 }
 
-static int rsa_setkey(RSA** key, unsigned char *ctext, int idx)
-{
+static int rsa_setkey(RSA** key, unsigned char *ctext, int idx){
     int clen = 0;
 
     *key = RSA_new();
@@ -217,8 +214,7 @@ static int rsa_setkey(RSA** key, unsigned char *ctext, int idx)
 
 static int test_rsa_simple(int idx, int en_pad_type, int de_pad_type,
                            int success, unsigned char *ctext_ex, int *clen,
-                           RSA **retkey)
-{
+                           RSA **retkey){
     int ret = 0;
     RSA *key;
     unsigned char ptext[256];
@@ -257,8 +253,7 @@ err:
     return ret;
 }
 
-static int test_rsa_pkcs1(int idx)
-{
+static int test_rsa_pkcs1(int idx){
     return test_rsa_simple(idx, RSA_PKCS1_PADDING, RSA_PKCS1_PADDING, 1, NULL,
                            NULL, NULL);
 }

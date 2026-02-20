@@ -11,6 +11,7 @@
 
 using namespace std;
 
+// 测试1 自动设置密码和盐值
 void autoAes() {
     char *data = "hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!hello world!";
     AES_KEY aes;
@@ -94,7 +95,7 @@ void autoAes() {
     printf("decrypted string = %s\n", decrypt_string);
 }
 
-
+// 测试2.1 手动设置密码和盐值
 std::string aesEncode(std::string data, std::string key, std::string iv){
     std::string enStr;
     AES_KEY aes;
@@ -125,6 +126,7 @@ std::string aesEncode(std::string data, std::string key, std::string iv){
     return enStr;
 }
 
+// 测试2.2 手动设置密码和盐值
 std::string aesDecode(std::string data, std::string key, std::string iv){
     std::string deStr;
     AES_KEY aes;
@@ -145,31 +147,22 @@ std::string aesDecode(std::string data, std::string key, std::string iv){
     }
 
     // decrypt
-    AES_cbc_encrypt((const unsigned char*)data.c_str(), decrypt_string, len, &aes, (unsigned char*)iv.c_str(), AES_DECRYPT);
-
-    // print
-    // printf("input_string = %s\n", data);
     printf("encrypted string = ");
     for (int i=0; i < len; ++i) {
         printf("%X%X", (data[i] >> 4) & 0xf, data[i] & 0xf);
     }
+    AES_cbc_encrypt((const unsigned char*)data.c_str(), decrypt_string, len, &aes, (unsigned char*)iv.c_str(), AES_DECRYPT);
+
     printf("\n");
     printf("decrypted string = %s\n", decrypt_string);
     deStr = (char*)decrypt_string;
     return deStr;
 }
 
-
-void aesTest(){
-    std::string data = "hello everybody!hello everybody!hello everybody!hello everybody!";
-    std::string key="1112130987654321";
-    std::string iv= "1234567890111213";
-    std::string encodeStr = aesEncode(data, key, iv);
-    std::string decodeStr = aesDecode(encodeStr, key, iv);
-}
-
-int main(){
-    // autoAes();
-    aesTest();
-    return 0;
-}
+// void aesTest(){
+//     std::string data = "hello everybody!hello everybody!hello everybody!hello everybody!";
+//     std::string key="1112130987654321";
+//     std::string iv= "1234567890111213";
+//     std::string encodeStr = aesEncode(data, key, iv);
+//     std::string decodeStr = aesDecode(encodeStr, key, iv);
+// }
